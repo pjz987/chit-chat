@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const express = require('express')
 const jwt = require('jsonwebtoken')
+const JWT_KEY = process.env.JWT_KEY
 
 const router = express.Router()
 
@@ -38,7 +39,7 @@ router.post('/login', (req, res) => {
 
     const token = jwt.sign({
       _id: user._id
-    }, 'VERYBESTKEY')
+    }, JWT_KEY)
 
     res.status(202).send({ token })
   })

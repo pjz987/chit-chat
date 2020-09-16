@@ -1,9 +1,10 @@
 const Message = require('./models/Message')
 const jwt = require('jsonwebtoken')
+const JWT_KEY = process.env.JWT_KEY
 
 const authenticate = token => {
-  if (jwt.verify(token, 'VERYBESTKEY')) {
-    const payload = jwt.decode(token, 'VERYBESTKEY')
+  if (jwt.verify(token, JWT_KEY)) {
+    const payload = jwt.decode(token, JWT_KEY)
     return payload
   } else {
     return console.log('Failed user authentication.')

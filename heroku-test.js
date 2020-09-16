@@ -8,9 +8,9 @@ app.get('*', (req, res) => {
     if (err) res.status(500).send(err)
   })
 })
-app.get('/', (req, res) => {
-  res.send('is this thing on?')
-})
+// app.get('/', (req, res) => {
+//   res.send('is this thing on?')
+// })
 
 module.exports = port => {
   app.listen(port)

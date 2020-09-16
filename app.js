@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
+const path = require('path')
 
 const AuthController = require('./controllers/auth')
 // const ProtectedRoutes = require('./controllers/protected')
@@ -11,6 +12,7 @@ const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 
+app.use(express.static(path.join(__dirname, 'reacc/build')))
 app.use(express.json())
 app.use(morgan('tiny'))
 

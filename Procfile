@@ -1,1 +1,1 @@
-web: npm run watch-express
+web: npm run start

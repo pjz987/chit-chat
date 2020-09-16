@@ -20,7 +20,9 @@ app.use('/', AuthController)
 // app.use('/', ProtectedRoutes)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/reacc/build/index.html'))
+  res.sendFile(path.join(__dirname, '/reacc/build/index.html'), err => {
+    if (err) res.status(500).send(err)
+  })
 })
 app.get('/', (req, res) => {
   res.json({ test: 'test' })

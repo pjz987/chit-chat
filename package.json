@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-server": "npx nodemon index.js",
-    "watch-express": "npx nodemon express.js",
-    "watch": "npx watchify static/main.js -o static/bundle.js --debug --verbose"
+    "start": "npx nodemon index.js"
   },
   "author": "",
   "license": "ISC",

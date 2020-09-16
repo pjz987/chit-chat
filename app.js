@@ -75,4 +75,4 @@ const startServer = port => {
   })
 }
 
-startServer(8000)
+module.exports = { startServer }

@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon index.js",
-    "heroku-postbuild": "cd reacc && npm i && npm start"
+    "build": "cd reacc && npm run build",
+    "install-client": "cd reacc && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "npx nodemon index.js"
+  },
+  "engines": {
+    "node": "12.x"
   },
   "author": "",
   "license": "ISC",

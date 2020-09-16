@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx nodemon index.js",
-    "heroku-postbuild": "cd reacc && yarn && yarn run build"
+    "heroku-postbuild": "cd reacc && npm i && npm start"
   },
   "author": "",
   "license": "ISC",

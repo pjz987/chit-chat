@@ -12,7 +12,7 @@ const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 
-app.use(express.static(path.join(__dirname, 'reacc/build')))
+app.use(express.static(path.join(__dirname, 'client/build')))
 app.use(express.json())
 app.use(morgan('tiny'))
 
@@ -20,7 +20,7 @@ app.use('/', AuthController)
 // app.use('/', ProtectedRoutes)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/reacc/build/index.html'), err => {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'), err => {
     if (err) res.status(500).send(err)
   })
 })

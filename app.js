@@ -19,6 +19,9 @@ app.use(morgan('tiny'))
 app.use('/', AuthController)
 // app.use('/', ProtectedRoutes)
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/reacc/build/index.html'))
+})
 app.get('/', (req, res) => {
   res.json({ test: 'test' })
   console.log('work?')

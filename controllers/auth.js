@@ -18,6 +18,7 @@ const router = express.Router()
 // }
 
 router.post('/sign-up', (req, res) => {
+  console.log('hello crazy heroku i love you <3 <3 <3')
   User.findOne({ username: req.body.username }, async (err, userExists) => {
     if (err) return res.status(500).send(err)
     if (userExists) return res.status(400).send({ err: 'username already exists' })

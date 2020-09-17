@@ -19,15 +19,17 @@ app.use(morgan('tiny'))
 app.use('/', AuthController)
 // app.use('/', ProtectedRoutes)
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/reacc/build/index.html'), err => {
-    if (err) res.status(500).send(err)
-  })
-})
-app.get('/', (req, res) => {
-  res.json({ test: 'test' })
-  console.log('work?')
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/reacc/build/index.html'), err => {
+//     if (err) res.status(500).send(err)
+//   })
+// })
+
+// app.get('/', (req, res) => {
+//   res.json({ test: 'test' })
+//   console.log('work?')
+// })
+
 io.on('connection', socket => {
   console.log('someone\'s on')
 

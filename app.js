@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const path = require('path')
+require('./database')
 
 const AuthController = require('./controllers/auth')
 // const ProtectedRoutes = require('./controllers/protected')
@@ -65,6 +66,7 @@ io.on('connection', socket => {
 })
 
 const connectDatabase = async (dbName = 'chat-app', hostname = 'localhost') => {
+  console.log('trying to connect')
   const db = await mongoose.connect(
     process.env.MONGODB_URI ||
     `mongodb://${hostname}/${dbName}`,
@@ -72,6 +74,9 @@ const connectDatabase = async (dbName = 'chat-app', hostname = 'localhost') => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true
+    },
+    err => {
+      if (err) console.log(err)
     }
   )
   console.log(`Database connected at mongodb://${hostname}/${dbName}...`)

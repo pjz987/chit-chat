@@ -76,10 +76,10 @@ const connectDatabase = async (dbName = 'chat-app', hostname = 'localhost') => {
       useCreateIndex: true
     },
     err => {
-      if (err) console.log(err)
+      if (err) console.log('db connection error: ', err)
     }
   )
-  console.log(`Database connected at mongodb://${hostname}/${dbName}...`)
+  console.log('Database connected at ' + process.env.MONGODB_URI || `mongodb://${hostname}/${dbName}...`)
   return db
 }
 

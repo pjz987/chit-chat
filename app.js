@@ -64,6 +64,7 @@ io.on('connection', socket => {
 
 const connectDatabase = async (dbName = 'chat-app', hostname = 'localhost') => {
   const db = await mongoose.connect(
+    process.env.MONGODB_URI ||
     `mongodb://${hostname}/${dbName}`,
     {
       useNewUrlParser: true,
@@ -73,6 +74,10 @@ const connectDatabase = async (dbName = 'chat-app', hostname = 'localhost') => {
   )
   console.log(`Database connected at mongodb://${hostname}/${dbName}...`)
   return db
+}
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('reacc/build'))
 }
 
 const startServer = port => {
